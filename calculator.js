@@ -4,3 +4,7 @@ let multiply = (a,b) => a * b;
 let divide = (a,b) => a / b;
 
 
+let num1;
+let operand;
+let num2;
+
