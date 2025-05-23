@@ -8,3 +8,4 @@ let num1;
 let operand;
 let num2;
 
+let userOutput = document.getElementById("user-input").value;
