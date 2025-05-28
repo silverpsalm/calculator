@@ -22,9 +22,39 @@ equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc
 
 operands.forEach( opBtn => {
     opBtn.addEventListener("click", () => {
-        userOutput.textContent += opBtn.textContent;
-        operand = opBtn.textContent;
-        console.log(operand);
+        console.log(opBtn.textContent);
+        if (!num1) {
+            alert("Enter a number first.")   
+        } else if (num2) {
+            performCalc();
+            operand = opBtn.textContent;
+            userOutput.textContent += operand;
+        } else if (!num2 && operand) {
+            // if first number exists AND operand already present
+            alert("This is where we'd replace the operand.");
+        } else {
+            // if number 1 exists and NO operand does yet
+            console.log("Operand added normally. Default.");
+            operand = opBtn.textContent;
+            userOutput.textContent += operand; 
+        }
+           
+        /*
+        num2 ? (btn) => {
+            performCalc();
+            operand = opBtn.textContent;
+            userOutput += operand;}
+        : !num1 ? alert("Enter a number first.") 
+        : (btn) => {
+            console.log("Operand added normally. Default.");
+           operand = opBtn.textContent;
+           userOutput.textContent += btn.textContent;
+            }; 
+            */
+          
+
+        // operand = opBtn.textContent;
+        // console.log(operand);
     });
 });
 
