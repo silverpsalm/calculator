@@ -32,8 +32,6 @@ operands.forEach( opBtn => {
         } else if (!num2 && operand) {
             // if first number exists AND operand already present
             let str = userOutput.textContent;
-            // userOutput.textContent = 
-            // str.substring(str[str.length-1]);
             userOutput.textContent = str.slice(0,-1);
             operand = opBtn.textContent;
             userOutput.textContent += operand;
@@ -43,20 +41,6 @@ operands.forEach( opBtn => {
             operand = opBtn.textContent;
             userOutput.textContent += operand; 
         }  
-        /* This was switch statement version of above if else statement
-        num2 ? (btn) => {
-            performCalc();
-            operand = opBtn.textContent;
-            userOutput += operand;}
-        : !num1 ? alert("Enter a number first.") 
-        : (btn) => {
-            console.log("Operand added normally. Default.");
-           operand = opBtn.textContent;
-           userOutput.textContent += btn.textContent;
-            }; 
-            */
-        // operand = opBtn.textContent;
-        // console.log(operand);
     });
 });
 
