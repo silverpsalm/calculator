@@ -6,7 +6,7 @@ let divide = (a,b) => a / b;
 
 
 let num1 = "";
-let operand;
+let operand = "";
 let num2 = "";
 
 const userOutput = document.querySelector("#output");
@@ -22,7 +22,7 @@ equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc
 
 operands.forEach( opBtn => {
     opBtn.addEventListener("click", () => {
-        console.log(opBtn.textContent);
+
         if (!num1) {
             alert("Enter a number first.")   
         } else if (num2) {
@@ -31,15 +31,19 @@ operands.forEach( opBtn => {
             userOutput.textContent += operand;
         } else if (!num2 && operand) {
             // if first number exists AND operand already present
-            alert("This is where we'd replace the operand.");
+            let str = userOutput.textContent;
+            // userOutput.textContent = 
+            // str.substring(str[str.length-1]);
+            userOutput.textContent = str.slice(0,-1);
+            operand = opBtn.textContent;
+            userOutput.textContent += operand;
         } else {
             // if number 1 exists and NO operand does yet
             console.log("Operand added normally. Default.");
             operand = opBtn.textContent;
             userOutput.textContent += operand; 
-        }
-           
-        /*
+        }  
+        /* This was switch statement version of above if else statement
         num2 ? (btn) => {
             performCalc();
             operand = opBtn.textContent;
@@ -51,8 +55,6 @@ operands.forEach( opBtn => {
            userOutput.textContent += btn.textContent;
             }; 
             */
-          
-
         // operand = opBtn.textContent;
         // console.log(operand);
     });
@@ -104,7 +106,7 @@ function performCalc() {
         
     
         userOutput.textContent = result;
-        num1 = userOutput.textContent;
+        num1 = result;
         num2 = "";
         operand = "";
         console.log(`Post-add, num1: ${num1} and num2: ${num2}`);
