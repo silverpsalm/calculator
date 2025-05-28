@@ -54,9 +54,11 @@ function performCalc() {
         let x = Number(num1);
         let y = Number(num2);
 
+        let result;
+        
         switch(operand) {
             case "+":
-                userOutput.textContent = add(x,y);
+                result = add(x,y);
                 console.log("Add funciton should have been performed.");
                 break;
             case "-":
@@ -69,5 +71,12 @@ function performCalc() {
                 divide(x,y);
                 break;
             }; 
+        
+    
+        userOutput.textContent = result;
+        num1 = userOutput.textContent;
+        num2 = "";
+        operand = "";
+        console.log(`Post-add, num1: ${num1} and num2: ${num2}`);
     };
 };
