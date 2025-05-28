@@ -11,17 +11,16 @@ let num2 = "";
 
 const userOutput = document.querySelector("#output");
 const numBtns = document.querySelectorAll("div#numbers > button");
-
 const operands = document.querySelectorAll("div#operands > button");
 const addBtn = document.querySelector("#add");
 const subtractBtn = document.querySelector("#subtract");
 const multiplyBtn = document.querySelector("#multiply");
 const divideBtn = document.querySelector("#divide");
-const equalBtn = document.querySelector("#equals");
+const equalBtn = document.querySelector("button#equals");
 const clearBtn = document.querySelector("#clear");
+equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc bc it kept auto firing
 
 operands.forEach( opBtn => {
-
     opBtn.addEventListener("click", () => {
         userOutput.textContent += opBtn.textContent;
         operand = opBtn.textContent;
@@ -29,10 +28,8 @@ operands.forEach( opBtn => {
     });
 });
 
-// print and store operands only. Equals will perform operation.
 
 numBtns.forEach( button => {
-
     button.addEventListener("click", () => {
         userOutput.textContent += button.textContent;
         if(!operand) {
@@ -45,3 +42,32 @@ numBtns.forEach( button => {
     });
 });
 
+function performCalc() {
+
+    console.log("Equal pressed.");
+
+    if (!num1 || !num2) {
+        console.log("One or more numbers doesn't exist!");
+    } else {
+
+        // convert numbers from strings to integers:
+        let x = Number(num1);
+        let y = Number(num2);
+
+        switch(operand) {
+            case "+":
+                userOutput.textContent = add(x,y);
+                console.log("Add funciton should have been performed.");
+                break;
+            case "-":
+                subtract(x,y);
+                break;
+            case "*":
+                multiply(x,y);
+                break;
+            case "/":
+                divide(x,y);
+                break;
+            }; 
+    };
+};
