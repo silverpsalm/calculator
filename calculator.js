@@ -14,3 +14,10 @@ const numBtns = document.querySelectorAll("div#numbers > button");
 console.log(userOutput.textContent);
 console.log(numBtns); 
 
+numBtns.forEach( button => {
+
+    button.addEventListener("click", () => {
+        userOutput.textContent += button.textContent;
+    });
+
+});
