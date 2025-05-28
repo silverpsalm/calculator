@@ -11,8 +11,14 @@ let num2;
 
 const userOutput = document.querySelector("#output");
 const numBtns = document.querySelectorAll("div#numbers > button");
-console.log(userOutput.textContent);
-console.log(numBtns); 
+
+const addBtn = document.querySelector("#add");
+const subtractBtn = document.querySelector("#subtract");
+const multiplyBtn = document.querySelector("#multiply");
+const divideBtn = document.querySelector("#divide");
+const equalBtn = document.querySelector("#equals");
+const clearBtn = document.querySelector("#clear");
+
 
 numBtns.forEach( button => {
 
@@ -21,3 +27,4 @@ numBtns.forEach( button => {
     });
 
 });
+
