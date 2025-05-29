@@ -94,7 +94,7 @@ function performCalc() {
             case "*":
                 result = multiply(x,y);
                 break;
-            case "/":
+            case "÷":
                 result = divide(x,y);
                 break;
             }; 
