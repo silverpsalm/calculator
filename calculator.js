@@ -78,13 +78,13 @@ function performCalc() {
                 console.log("Add funciton should have been performed.");
                 break;
             case "-":
-                subtract(x,y);
+                result = subtract(x,y);
                 break;
             case "*":
-                multiply(x,y);
+                result = multiply(x,y);
                 break;
             case "/":
-                divide(x,y);
+                result = divide(x,y);
                 break;
             }; 
         
