@@ -5,17 +5,25 @@ body {
 #calculator {
 background: #999;
 padding: 10px;
-width: 400px;
+width: 130px;
 display: flex;
-flex-direction: column;
+flex-direction: row;
+flex-wrap: wrap;
+align-content: space-between;
+justify-content: space-between;
+
 }
 
 #output {
 height: 20px;
 background: #777;
+flex-basis: 100%;
+color: #fff;
 }
 
-div#output > button {
+
+#clear {
+    flex-basis: 100%;
 
 }
 
@@ -28,10 +36,7 @@ justify-content: space-between;
 align-content: space-between;
 }
 
-button {
-}
-
-div#numbers > button {
+div#numbers > button, div#operands > button {
     width: 30px;
     height: 30px;
     flex-grow: 0;
@@ -42,5 +47,9 @@ button#zero {
 }
 
 #operands {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
 
 }
+
