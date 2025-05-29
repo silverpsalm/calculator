@@ -25,12 +25,20 @@ width: 100px;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-between;
+align-content: space-between;
+}
+
+button {
 }
 
 div#numbers > button {
-width: 30px;
-height: 30px;
-flex-grow: 0;
+    width: 30px;
+    height: 30px;
+    flex-grow: 0;
+}
+
+button#zero {
+    flex-grow: 1 !important;
 }
 
 #operands {
