@@ -16,7 +16,7 @@ const addBtn = document.querySelector("#add");
 const subtractBtn = document.querySelector("#subtract");
 const multiplyBtn = document.querySelector("#multiply");
 const divideBtn = document.querySelector("#divide");
-const equalBtn = document.querySelector("button#equals");
+const equalBtn = document.querySelector("#equals");
 const clearBtn = document.querySelector("#clear");
 equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc bc it kept auto firing
 clearBtn.addEventListener("click", () => {clearAll()});
@@ -30,6 +30,8 @@ function clearAll() {
 
 operands.forEach( opBtn => {
     opBtn.addEventListener("click", () => {
+ 
+    if (opBtn.textContent != "=") {
 
         if (!num1) {
             alert("Enter a number first.")   
@@ -48,7 +50,8 @@ operands.forEach( opBtn => {
             console.log("Operand added normally. Default.");
             operand = opBtn.textContent;
             userOutput.textContent += operand; 
-        }  
+        }
+    }  
     });
 });
 
