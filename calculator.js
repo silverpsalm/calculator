@@ -19,6 +19,14 @@ const divideBtn = document.querySelector("#divide");
 const equalBtn = document.querySelector("button#equals");
 const clearBtn = document.querySelector("#clear");
 equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc bc it kept auto firing
+clearBtn.addEventListener("click", () => {clearAll()});
+
+function clearAll() {
+    num1 = "";
+    operand = "";
+    num2 = "";
+    userOutput.textContent = "";
+};
 
 operands.forEach( opBtn => {
     opBtn.addEventListener("click", () => {
