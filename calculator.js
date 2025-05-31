@@ -1,5 +1,5 @@
 
-let add = (a,b) => Math.floor(a + b);
+let add = (a,b) => a + b;
 let subtract = (a,b) => a - b;
 let multiply = (a,b) => a * b;
 let divide = (a,b) => a / b;
@@ -101,10 +101,25 @@ function performCalc() {
         
     
         userOutput.textContent = result;
+        console.log(`result before: ${result}`)
         // if result has decimal:
+        if (hasDecimal(result)) { 
+            result.toFixed(4);
+        }
+        console.log(`result after: ${result}`)
+
         num1 = result;
         num2 = "";
         operand = "";
         console.log(`Post-add, num1: ${num1} and num2: ${num2}`);
     };
 };
+
+
+function hasDecimal (x) {
+    if (x % 1) {
+        return false;
+    } else {
+        return true;
+    }   
+}
