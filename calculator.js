@@ -1,5 +1,5 @@
 
-let add = (a,b) => a + b;
+let add = (a,b) => Math.floor(a + b);
 let subtract = (a,b) => a - b;
 let multiply = (a,b) => a * b;
 let divide = (a,b) => a / b;
@@ -101,6 +101,7 @@ function performCalc() {
         
     
         userOutput.textContent = result;
+        // if result has decimal:
         num1 = result;
         num2 = "";
         operand = "";
