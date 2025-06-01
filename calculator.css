@@ -1,35 +1,42 @@
 body {
     box-sizing: border-box;
+    margin: auto;
 }
 
 #calculator {
 background: #999;
 padding: 10px;
-width: 130px;
+max-width: 200px;
+height: 300px;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 align-content: space-between;
 justify-content: space-between;
+margin:30px auto;
 
 }
 
 #output {
-height: 20px;
+height: 40px;
 background: #777;
 flex-basis: 100%;
 color: #fff;
+font-size: 26px;
+border: 1px solid #666;
+padding: 4px;
 }
 
 
 #clear {
     flex-basis: 100%;
-
+    height: 40px;
 }
 
 #numbers {
 display:flex;
-width: 100px;
+gap: 3px;
+width: 75%;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-between;
@@ -38,8 +45,8 @@ align-items: stretch;
 }
 
 div#numbers > button, div#operands > button {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     flex-grow: 1;
 }
 
@@ -51,6 +58,7 @@ button#zero {
     display: flex;
     flex-direction: column;
     align-content: space-between;
+    gap: 3px;
 
 }
 
