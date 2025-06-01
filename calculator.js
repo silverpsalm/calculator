@@ -47,7 +47,6 @@ operands.forEach( opBtn => {
             userOutput.textContent += operand;
         } else {
             // if number 1 exists and NO operand does yet
-            console.log("Operand added normally. Default.");
             operand = opBtn.textContent;
             userOutput.textContent += operand; 
         }
@@ -61,10 +60,8 @@ numBtns.forEach( button => {
         userOutput.textContent += button.textContent;
         if(!operand) {
             num1 += button.textContent;
-            console.log(`button added to num1: ${num1}`);
         } else {
             num2 += button.textContent;
-            console.log(`button added to num2: ${num2}`);
         }
     });
 });
@@ -79,17 +76,17 @@ function performCalc() {
 
         let x = Number(num1);
         let y = Number(num2);
+
         if (y == 0) {
             alert("No dividing by zero... ");
             num2 = "";
         } else {
 
             let result;
-        
+
             switch(operand) {
                 case "+":
                 result = add(x,y);
-                console.log("Add funciton should have been performed.");
                 break;
                 case "-":
                 result = subtract(x,y);
@@ -102,12 +99,13 @@ function performCalc() {
                 break;
             };
         
-        
-    
-        userOutput.textContent = result;
         // if result has decimal:
         if (hasDecimal(result)) { 
             result.toFixed(4);
+            userOutput.textContent = result;
+
+        } else {
+        userOutput.textContent = result;
         }
 
         num1 = result;
@@ -121,6 +119,7 @@ function performCalc() {
 function hasDecimal (x) {
     if (x % 1) {
         return false;
+        console.log("has a decimal");
     } else {
         return true;
     }   
