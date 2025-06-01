@@ -70,48 +70,50 @@ numBtns.forEach( button => {
 });
 
 function performCalc() {
-
     console.log("Equal pressed.");
+
 
     if (!num1 || !num2) {
         console.log("One or more numbers doesn't exist!");
     } else {
 
-        // convert numbers from strings to integers:
         let x = Number(num1);
         let y = Number(num2);
+        if (y == 0) {
+            alert("No dividing by zero... ");
+            num2 = "";
+        } else {
 
-        let result;
+            let result;
         
-        switch(operand) {
-            case "+":
+            switch(operand) {
+                case "+":
                 result = add(x,y);
                 console.log("Add funciton should have been performed.");
                 break;
-            case "-":
+                case "-":
                 result = subtract(x,y);
                 break;
-            case "*":
+                case "*":
                 result = multiply(x,y);
                 break;
-            case "÷":
+                case "÷":
                 result = divide(x,y);
                 break;
-            }; 
+            };
+        
         
     
         userOutput.textContent = result;
-        console.log(`result before: ${result}`)
         // if result has decimal:
         if (hasDecimal(result)) { 
             result.toFixed(4);
         }
-        console.log(`result after: ${result}`)
 
         num1 = result;
         num2 = "";
         operand = "";
-        console.log(`Post-add, num1: ${num1} and num2: ${num2}`);
+        }
     };
 };
 
