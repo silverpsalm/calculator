@@ -22,6 +22,9 @@ const backBtn = document.querySelector("button#back");
 equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc bc it kept auto firing
 clearBtn.addEventListener("click", () => {clearAll()});
 
+backBtn.addEventListener("click", () => {
+    console.log("back btn clicked");
+});
 
 function clearAll() {
     num1 = "";
