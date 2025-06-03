@@ -148,21 +148,37 @@ function hasDecimal(x) {
 
 
 decimalBtn.addEventListener("click", () => {
-    let dot = ".";
-    console.log("decimal click");
-        // clear calculated result after a digit click
+    let dec = ".";
+    
+    // console.log(`regex test of num1: ${decCheck(num1)}`);
+
+        // clear calculated result after a click
         if(!num1) {
             userOutput.textContent = "";
-        }
+        } 
 
-        userOutput.textContent += dot;
-
-
-        if(!operand) {
+        if(!operand && !decCheck(num1)) {
             // add a regex test() here for decimal.
-            num1 += dot;
-        } else {
+            num1 += dec;
+            userOutput.textContent += dec;
+
+        } else if(num1 && operand && !decCheck(num2)) {
             // add regex test() here for decimal, too
-            num2 += dot;
+            num2 += dec;
+            userOutput.textContent += dec;
+        } else {
+            console.log("Multiple decimal points? Amateur.")
         }
+        
+
     });
+
+
+    function decCheck(x) {
+        let decRegex = /\./;
+        if(decRegex.test(x)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
