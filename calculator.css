@@ -27,10 +27,15 @@ border: 1px solid #666;
 padding: 4px;
 }
 
+#top-btns {
+    display: flex;
+    gap: 3px;
+    flex-grow: 1;
+}
 
-#clear {
-    flex-basis: 100%;
+#clear, #back {
     height: 40px;
+    flex-grow: 1;
 }
 
 #numbers {
