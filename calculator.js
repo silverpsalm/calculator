@@ -10,7 +10,7 @@ let operand = "";
 let num2 = "";
 
 const userOutput = document.querySelector("#output");
-const numBtns = document.querySelectorAll("div#numbers > button");
+const numBtns = document.querySelectorAll("button.digit");
 const operands = document.querySelectorAll("div#operands > button");
 const addBtn = document.querySelector("#add");
 const subtractBtn = document.querySelector("#subtract");
@@ -36,8 +36,9 @@ operands.forEach( opBtn => {
             num1 = userOutput.textContent;
         }
 
-    if (opBtn.textContent != "=") {
 
+    if (opBtn.textContent != "=") {
+ 
         if (!num1) {
             alert("Enter a number first.")   
         } else if (num2) {
@@ -71,8 +72,10 @@ numBtns.forEach( button => {
 
 
         if(!operand) {
+            // add a regex test() here for decimal.
             num1 += button.textContent;
         } else {
+            // add regex test() here for decimal, too
             num2 += button.textContent;
         }
     });
