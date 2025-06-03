@@ -17,7 +17,8 @@ const multiplyBtn = document.querySelector("#multiply");
 const divideBtn = document.querySelector("#divide");
 const equalBtn = document.querySelector("#equals");
 const clearBtn = document.querySelector("#clear");
-const decimalBtn = document.querySelector("button#decimal")
+const decimalBtn = document.querySelector("button#decimal");
+const backBtn = document.querySelector("button#back");
 equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc bc it kept auto firing
 clearBtn.addEventListener("click", () => {clearAll()});
 
