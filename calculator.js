@@ -4,7 +4,6 @@ let subtract = (a,b) => a - b;
 let multiply = (a,b) => a * b;
 let divide = (a,b) => a / b;
 
-
 let num1 = "";
 let operand = "";
 let num2 = "";
@@ -64,7 +63,9 @@ operands.forEach( opBtn => {
 
 
 numBtns.forEach( button => {
+
     button.addEventListener("click", () => {
+
         // clear calculated result after a digit click
         if(!num1) {
             userOutput.textContent = "";
@@ -72,12 +73,9 @@ numBtns.forEach( button => {
 
         userOutput.textContent += button.textContent;
 
-
         if(!operand) {
-            // add a regex test() here for decimal.
             num1 += button.textContent;
         } else {
-            // add regex test() here for decimal, too
             num2 += button.textContent;
         }
     });
@@ -135,7 +133,7 @@ function performCalc() {
     };
 };
 
-
+// check if result is a whole number or not:
 function hasDecimal(x) {
     if (x % 1 == 0) {
         return false;
@@ -150,33 +148,28 @@ function hasDecimal(x) {
 decimalBtn.addEventListener("click", () => {
     let dec = ".";
     
-    // console.log(`regex test of num1: ${decCheck(num1)}`);
-
         // clear calculated result after a click
         if(!num1) {
             userOutput.textContent = "";
         } 
 
         if(!operand && !decCheck(num1)) {
-            // add a regex test() here for decimal.
             num1 += dec;
             userOutput.textContent += dec;
 
         } else if(num1 && operand && !decCheck(num2)) {
-            // add regex test() here for decimal, too
             num2 += dec;
             userOutput.textContent += dec;
         } else {
             console.log("Multiple decimal points? Amateur.")
         }
-        
 
     });
 
-
-    function decCheck(x) {
-        let decRegex = /\./;
-        if(decRegex.test(x)) {
+// check user input for presence of decimal:
+function decCheck(x) {
+    let decRegex = /\./;
+    if(decRegex.test(x)) {
             return true;
         } else {
             return false;
