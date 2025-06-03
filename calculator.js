@@ -18,8 +18,10 @@ const multiplyBtn = document.querySelector("#multiply");
 const divideBtn = document.querySelector("#divide");
 const equalBtn = document.querySelector("#equals");
 const clearBtn = document.querySelector("#clear");
+const decimalBtn = document.querySelector("button#decimal")
 equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc bc it kept auto firing
 clearBtn.addEventListener("click", () => {clearAll()});
+
 
 function clearAll() {
     num1 = "";
@@ -143,3 +145,24 @@ function hasDecimal(x) {
         console.log("no decimal found!");
     }   
 }
+
+
+decimalBtn.addEventListener("click", () => {
+    let dot = ".";
+    console.log("decimal click");
+        // clear calculated result after a digit click
+        if(!num1) {
+            userOutput.textContent = "";
+        }
+
+        userOutput.textContent += dot;
+
+
+        if(!operand) {
+            // add a regex test() here for decimal.
+            num1 += dot;
+        } else {
+            // add regex test() here for decimal, too
+            num2 += dot;
+        }
+    });
