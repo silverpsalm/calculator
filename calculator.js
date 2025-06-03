@@ -30,7 +30,12 @@ function clearAll() {
 
 operands.forEach( opBtn => {
     opBtn.addEventListener("click", () => {
- 
+
+        // sets calculated result to num1 if an operator is clicked
+        if(!num1 && userOutput.textContent &&  opBtn.textContent != "=") {
+            num1 = userOutput.textContent;
+        }
+
     if (opBtn.textContent != "=") {
 
         if (!num1) {
@@ -57,7 +62,14 @@ operands.forEach( opBtn => {
 
 numBtns.forEach( button => {
     button.addEventListener("click", () => {
+        // clear calculated result after a digit click
+        if(!num1) {
+            userOutput.textContent = "";
+        }
+
         userOutput.textContent += button.textContent;
+
+
         if(!operand) {
             num1 += button.textContent;
         } else {
@@ -107,11 +119,11 @@ function performCalc() {
 
         } else {
         userOutput.textContent = result;
-                    console.log("decimal wasn't found so result added as is")
+            console.log("decimal wasn't found so result added as is")
 
         }
 
-        num1 = result;
+        num1 = "";
         num2 = "";
         operand = "";
         }
