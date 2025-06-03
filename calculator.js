@@ -101,11 +101,14 @@ function performCalc() {
         
         // if result has decimal:
         if (hasDecimal(result)) { 
-            result.toFixed(4);
+            result = result.toFixed(4);
             userOutput.textContent = result;
+            console.log("decimal found so result was just rounded.")
 
         } else {
         userOutput.textContent = result;
+                    console.log("decimal wasn't found so result added as is")
+
         }
 
         num1 = result;
@@ -116,11 +119,12 @@ function performCalc() {
 };
 
 
-function hasDecimal (x) {
-    if (x % 1) {
+function hasDecimal(x) {
+    if (x % 1 == 0) {
         return false;
         console.log("has a decimal");
     } else {
         return true;
+        console.log("no decimal found!");
     }   
 }
