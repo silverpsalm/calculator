@@ -23,7 +23,18 @@ equalBtn.addEventListener("click", () => {performCalc()}); // nested performCalc
 clearBtn.addEventListener("click", () => {clearAll()});
 
 backBtn.addEventListener("click", () => {
-    console.log("back btn clicked");
+    let arr = userOutput.textContent;
+    userOutput.textContent = arr.slice(0,-1);
+
+    if(!operand && !num2) {
+        let fixOne = num1.slice(0,-1);
+        num1 = fixOne;
+    } else if (operand && !num2) {
+        operand = "";
+    } else {
+        let fixTwo = num2.slice(0,-1);
+        num2 = fixTwo;
+    }
 });
 
 function clearAll() {
