@@ -78,7 +78,6 @@ operands.forEach( opBtn => {
 numBtns.forEach( button => {
 
     button.addEventListener("click", () => {
-        console.log("button clicked");
         // clear calculated result after a digit click
         if (!num1 && !operand) {
             userOutput.textContent = "";
@@ -191,33 +190,13 @@ function decCheck(x) {
 
 
 // Keyboard support:
-
 const allBtns = document.querySelectorAll("button");
 
-    allBtns.forEach(btn => {
-        // for each button, create a keydown listener for its value
-        addEventListener("keydown", (e) => {
+allBtns.forEach(btn => {
+    // for each button, create a keydown listener for its value
+    addEventListener("keydown", (e) => {
             if(e.key === btn.value) {
-                // simulate button click
                 btn.click();
-                console.log("button click should have been fire with keydown.");
             }
-        });
     });
-
-
-// document.addEventListener("keydown", (e) => {
-//     console.log(`a key was pressed! here's e key: ${e.key}`);
-    
-//     const allBtns = document.querySelectorAll("button");
-//     const btnArr = Array.from(allBtns);
-//     console.log(btnArr);
-//     const thisBtn = btnArr.filter(btn => btn.textContent === e.key);
-//         console.log(`button: ${thisBtn}
-//             text content: ${thisBtn.textContent}`);
-
-//     // make a click event:
-//     const fauxClick = new MouseEvent("click");
-
-//     thisBtn.dispatchEvent(fauxClick);
-// });
+});
