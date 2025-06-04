@@ -46,25 +46,12 @@ function clearAll() {
 
 operands.forEach( opBtn => {
     opBtn.addEventListener("click", () => {
-        let outputLength = userOutput.textContent.length;
-        console.log(`outputLength: ${outputLength}`);
         // sets calculated result to num1 if an operator is clicked
         if(!num1 && userOutput.textContent && opBtn.textContent != "=") {
             num1 = userOutput.textContent;
-            console.log(`our num1: ${num1}`);
         }
-        //         if(!num1 && !num2 && !operand && userOutput.textContent != 0) {
-        //     num1 = userOutput.textContent;
-        //     console.log(`Ouur new code to repopulate num1.
-        //         num1: ${num1}
-        //         num2: ${num2}
-        //         operand: ${operand}`);
-        // }
-
 
     if (opBtn.textContent != "=") {
-
-        // populate num1 with result if it exists
 
         if (!num1) {
             alert("Enter a number first.") ;  
@@ -112,8 +99,6 @@ numBtns.forEach( button => {
 });
 
 function performCalc() {
-    console.log("Equal pressed.");
-
 
     if (!num1 || !num2) {
         console.log("One or more numbers doesn't exist!");
@@ -144,16 +129,14 @@ function performCalc() {
                 break;
             };
         
-        // if result has decimal:
+        
         if (hasDecimal(result)) { 
+            // if result has decimal:
             result = result.toFixed(4);
             userOutput.textContent = result;
-            console.log("decimal found so result was just rounded.")
-
         } else {
-        userOutput.textContent = result;
-            console.log("decimal wasn't found so result added as is")
-
+            // if result has no decimal:
+            userOutput.textContent = result;
         }
 
         num1 = "";
