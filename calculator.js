@@ -188,3 +188,23 @@ function decCheck(x) {
             return false;
         }
     }
+
+
+// Keyboard support:
+
+document.addEventListener("keypress", (e) => {
+    console.log(`a key was pressed! here's e key: ${e.key}`);
+    
+    const allBtns = document.querySelectorAll("button");
+    const btnArr = Array.from(allBtns);
+    console.log(btnArr);
+    const thisBtn = btnArr.filter(btn => btn.textContent === e.key);
+        console.log(`button: ${thisBtn}
+            text content: ${thisBtn.textContent}`);
+
+    // make a click event:
+    const fauxClick = new MouseEvent("click");
+
+    thisBtn.dispatchEvent(fauxClick);
+    // allBtns.forEach()
+});
