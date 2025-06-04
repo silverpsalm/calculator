@@ -46,22 +46,33 @@ function clearAll() {
 
 operands.forEach( opBtn => {
     opBtn.addEventListener("click", () => {
-
+        let outputLength = userOutput.textContent.length;
+        console.log(`outputLength: ${outputLength}`);
         // sets calculated result to num1 if an operator is clicked
-        if(!num1 && userOutput.textContent &&  opBtn.textContent != "=") {
+        if(!num1 && userOutput.textContent && opBtn.textContent != "=") {
             num1 = userOutput.textContent;
+            console.log(`our num1: ${num1}`);
         }
+        //         if(!num1 && !num2 && !operand && userOutput.textContent != 0) {
+        //     num1 = userOutput.textContent;
+        //     console.log(`Ouur new code to repopulate num1.
+        //         num1: ${num1}
+        //         num2: ${num2}
+        //         operand: ${operand}`);
+        // }
 
 
     if (opBtn.textContent != "=") {
- 
+
+        // populate num1 with result if it exists
+
         if (!num1) {
-            alert("Enter a number first.")   
+            alert("Enter a number first.") ;  
         } else if (num2) {
             performCalc();
             operand = opBtn.textContent;
             userOutput.textContent += operand;
-        } else if (!num2 && operand) {
+        } else if (num1 && !num2 && operand) {
             // if first number exists AND operand already present
             let str = userOutput.textContent;
             userOutput.textContent = str.slice(0,-1);
@@ -82,8 +93,12 @@ numBtns.forEach( button => {
     button.addEventListener("click", () => {
 
         // clear calculated result after a digit click
-        if(!num1) {
+        if (!num1 && !operand) {
             userOutput.textContent = "";
+        } else if (!num1 && operand) {
+            // a fix for chained calculations on non-equal button press
+            let newOne = userOutput.textContent;
+            num1 = newOne.slice(0,-1);
         }
 
         userOutput.textContent += button.textContent;
