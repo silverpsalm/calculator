@@ -192,7 +192,10 @@ function decCheck(x) {
 
 // Keyboard support:
 
-document.addEventListener("keypress", (e) => {
+document.addEventListener("keydown", (e) => {
+
+    // CURRENT NOTES custom click event and button array not working
+
     console.log(`a key was pressed! here's e key: ${e.key}`);
     
     const allBtns = document.querySelectorAll("button");
